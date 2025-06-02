@@ -1,77 +1,63 @@
-const cheatData = {
-    ph4ze: {
-        name: "Ph4ze (Fortnite)",
-        image: "https://i.ytimg.com/vi/EuNa0lk7gJs/maxresdefault.jpg",
-        links: {
-            day: "https://discord.gg/VdvkQK4wuG",   // <-- Replace YOUR_INVITE here
-            week: "https://discord.gg/VdvkQK4wuG",
-            month: "https://discord.gg/VdvkQK4wuG"
+document.addEventListener("DOMContentLoaded", () => {
+    const continueBtn = document.getElementById("continueBtn");
+    const buyNowBtn = document.getElementById("buyNowBtn");
+    const cheatSelector = document.getElementById("cheatSelector");
+    const keySelector = document.getElementById("keySelector");
+
+    continueBtn.addEventListener("click", () => {
+        const selectedCheat = cheatSelector.value;
+
+        if (!selectedCheat) {
+            alert("Please select a cheat!");
+            return;
         }
-    },
-    eknode: {
-        name: "Eknode (CS2)",
-        image: "https://securecheats.com/wp-content/uploads/2024/04/CS2-Hacks-Cheats-To-Download.jpg",
-        links: {
-            day: "https://discord.gg/VdvkQK4wuG",
-            week: "https://discord.gg/VdvkQK4wuG",
-            month: "https://discord.gg/VdvkQK4wuG"
+
+        // Show second page
+        document.getElementById("mainScreen").style.display = "none";
+        document.getElementById("cheatScreen").style.display = "block";
+
+        const title = document.getElementById("cheatTitle");
+        const image = document.getElementById("cheatImage");
+
+        // Update content
+        if (selectedCheat === "fortnite") {
+            title.textContent = "🛡️ Ph4ze (Fortnite)";
+            image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPF3ov5vYNem_m9qJEUfP0Y59Yik-IxNTKdg&s";
+            keySelector.innerHTML = `
+        <option value="">-- Select Key --</option>
+        <option value="9">Day Key - $9 AUD</option>
+        <option value="16">Week Key - $16 AUD</option>
+        <option value="35">Month Key - $35 AUD</option>
+      `;
+        } else if (selectedCheat === "cs2") {
+            title.textContent = "🔫 Eknode (CS2)";
+            image.src = "https://securecheats.com/wp-content/uploads/2024/04/CS2-Hacks-Cheats-To-Download.jpg";
+            keySelector.innerHTML = `
+        <option value="">-- Select Key --</option>
+        <option value="7">Day Key - $7 AUD</option>
+        <option value="13">Week Key - $13 AUD</option>
+        <option value="28">Month Key - $28 AUD</option>
+      `;
+        } else if (selectedCheat === "siege") {
+            title.textContent = "🕵️ RuntClient (Siege)";
+            image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSw1-3suV0-AEXE1hj5k1nuQ1-K81B9cmgMA&s";
+            keySelector.innerHTML = `
+        <option value="">-- Select Key --</option>
+        <option value="8.65">Day Key - $8.65 AUD</option>
+        <option value="15">Week Key - $15 AUD</option>
+        <option value="32">Month Key - $32 AUD</option>
+      `;
         }
-    },
-    runtclient: {
-        name: "RuntClient (Siege)",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSw1-3suV0-AEXE1hj5k1nuQ1-K81B9cmgMA&s",
-        links: {
-            day: "https://discord.gg/VdvkQK4wuG",
-            week: "https://discord.gg/VdvkQK4wuG",
-            month: "https://discord.gg/VdvkQK4wuG"
+    });
+
+    buyNowBtn.addEventListener("click", () => {
+        const key = keySelector.value;
+        if (!key) {
+            alert("Please select a key duration!");
+            return;
         }
-    }
-};
 
-const pageSelect = document.getElementById("page-select");
-const pageOptions = document.getElementById("page-options");
-const cheatSelect = document.getElementById("cheat-select");
-const goToOptionsBtn = document.getElementById("go-to-options");
-const optionsTitle = document.getElementById("options-title");
-const optionsImg = document.getElementById("options-img");
-const keySelect = document.getElementById("key-select");
-const buyNowBtn = document.getElementById("buy-now");
-const homeLink = document.getElementById("home-link");
-
-// Enable Next button only when a cheat is selected
-cheatSelect.addEventListener("change", () => {
-    goToOptionsBtn.disabled = !cheatSelect.value;
-});
-
-goToOptionsBtn.addEventListener("click", () => {
-    const cheatKey = cheatSelect.value;
-    if (!cheatKey) return;
-
-    const cheat = cheatData[cheatKey];
-
-    optionsTitle.textContent = cheat.name;
-    optionsImg.src = cheat.image;
-    optionsImg.alt = cheat.name + " image";
-
-    function updateBuyLink() {
-        const duration = keySelect.value;
-        buyNowBtn.href = cheat.links[duration];
-    }
-
-    keySelect.value = "day"; // default selection
-    updateBuyLink();
-
-    keySelect.onchange = updateBuyLink;
-
-    pageSelect.classList.remove("active");
-    pageOptions.classList.add("active");
-});
-
-// Home button returns to first page & resets selection
-homeLink.addEventListener("click", (e) => {
-    e.preventDefault();
-    pageOptions.classList.remove("active");
-    pageSelect.classList.add("active");
-    cheatSelect.value = "";
-    goToOptionsBtn.disabled = true;
+        // Redirect to Discord
+        window.location.href = "https://discord.gg/VdvkQK4wuG";
+    });
 });
