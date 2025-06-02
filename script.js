@@ -6,20 +6,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     continueBtn.addEventListener("click", () => {
         const selectedCheat = cheatSelector.value;
-
         if (!selectedCheat) {
-            alert("Please select a cheat!");
+            alert("Please select a product!");
             return;
         }
 
-        // Show second page
         document.getElementById("mainScreen").style.display = "none";
         document.getElementById("cheatScreen").style.display = "block";
 
         const title = document.getElementById("cheatTitle");
         const image = document.getElementById("cheatImage");
 
-        // Update content
+        keySelector.style.display = "block";
+        keySelector.innerHTML = "";
+
         if (selectedCheat === "fortnite") {
             title.textContent = "🛡️ Ph4ze (Fortnite)";
             image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPF3ov5vYNem_m9qJEUfP0Y59Yik-IxNTKdg&s";
@@ -47,17 +47,22 @@ document.addEventListener("DOMContentLoaded", () => {
         <option value="15">Week Key - $15 AUD</option>
         <option value="32">Month Key - $32 AUD</option>
       `;
+        } else if (selectedCheat === "pandanet") {
+            title.textContent = "🐼 PandaNet (Botnet)";
+            image.src = "https://static.vecteezy.com/system/resources/previews/005/530/020/non_2x/cute-panda-eating-bamboo-leaf-cartoon-icon-illustration-animal-nature-icon-concept-isolated-premium-flat-cartoon-style-vector.jpg";
+            keySelector.style.display = "none";
         }
     });
 
     buyNowBtn.addEventListener("click", () => {
-        const key = keySelector.value;
-        if (!key) {
-            alert("Please select a key duration!");
-            return;
+        const selected = cheatSelector.value;
+        if (selected !== "pandanet") {
+            const key = keySelector.value;
+            if (!key) {
+                alert("Please select a key duration!");
+                return;
+            }
         }
-
-        // Redirect to Discord
         window.location.href = "https://discord.gg/VdvkQK4wuG";
     });
 });
