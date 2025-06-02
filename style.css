@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0f0f0f;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    background: #111;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #222;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00ffee;
+}
+
+nav a {
+    color: #ccc;
+    text-decoration: none;
+    margin-left: 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+    nav a:hover {
+        color: #00ffee;
+    }
+
+main {
+    padding: 30px 20px;
+}
+
+.page {
+    display: none;
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+    .page.active {
+        display: block;
+    }
+
+h1 {
+    color: #00ffee;
+    margin-bottom: 20px;
+}
+
+select {
+    width: 220px;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #00ffee;
+    background: #111;
+    color: #00ffee;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+img.game-img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #00ffee88;
+    user-select: none;
+    margin-bottom: 20px;
+}
+
+.buy-btn {
+    display: inline-block;
+    background: transparent;
+    border: 2px solid #00ffee;
+    color: #00ffee;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+    user-select: none;
+}
+
+    .buy-btn:hover {
+        background: #00ffee;
+        color: #000;
+    }
+
+button.buy-btn {
+    border: 2px solid #00ffee;
+    background: transparent;
+}
+
+    button.buy-btn:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
