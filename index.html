@@ -2,43 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PH4ZE Store - Cheats</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PH4ZE Cheats</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <div class="logo">PH4ZE STORE</div>
-        <nav><a href="#" id="home-link">Home</a></nav>
-    </header>
+    <div class="backdrop"></div>
 
-    <main>
-        <!-- Page 1: Cheat Select -->
-        <section id="page-select" class="page active">
-            <h1>Select a Cheat</h1>
-            <select id="cheat-select" aria-label="Select Cheat">
-                <option value="" disabled selected>-- Choose Cheat --</option>
-                <option value="ph4ze">Ph4ze (Fortnite)</option>
-                <option value="eknode">Eknode (CS2)</option>
-                <option value="runtclient">RuntClient (Siege)</option>
-            </select>
-            <br />
-            <button class="buy-btn" id="go-to-options" disabled>Next</button>
-        </section>
+    <!-- Main Page -->
+    <div class="container" id="mainScreen">
+        <h1>💻 PH4ZE Cheat Store</h1>
+        <p>Select your game to continue:</p>
+        <select id="cheatSelector">
+            <option value="">-- Select Cheat --</option>
+            <option value="fortnite">Ph4ze (Fortnite)</option>
+            <option value="cs2">Eknode (CS2)</option>
+            <option value="siege">RuntClient (Siege)</option>
+        </select>
+        <button id="continueBtn">Continue</button>
+    </div>
 
-        <!-- Page 2: Select Key + Buy -->
-        <section id="page-options" class="page">
-            <h1 id="options-title">Loading...</h1>
-            <img id="options-img" class="game-img" src="" alt="Game Image" />
-            <select id="key-select" aria-label="Select Key Duration">
-                <option value="day">Day Key</option>
-                <option value="week">Week Key</option>
-                <option value="month">Month Key</option>
-            </select>
-            <br />
-            <a id="buy-now" class="buy-btn" target="_blank" rel="noopener noreferrer">Buy Now</a>
-        </section>
-    </main>
+    <!-- Second Page -->
+    <div class="container" id="cheatScreen" style="display: none;">
+        <h1 id="cheatTitle">Cheat</h1>
+        <img id="cheatImage" class="game-img" src="" alt="Cheat Image" />
+        <select id="keySelector"></select>
+        <button id="buyNowBtn">Buy Now</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
